@@ -34,9 +34,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    @OneToOne(mappedBy = "user", orphanRemoval = true)
     @Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
-    private List<Cart> carts = new ArrayList<>();
+    private Cart cart;
 
     @Override
     public String getUsername() {
