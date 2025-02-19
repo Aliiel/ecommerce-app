@@ -5,16 +5,6 @@ d
 4ecommerce-backend/src/main/resources/application.yml,9\f\9f1c1b96a1857ed62a673c7f6ff693bb61033896
 I
 ecommerce-backend/pom.xml,5\5\5559834733523254bcd3cc2e3d0433b62cb5f9e9
-“
-cecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/repositories/CartRepository.java,d\e\debfd188f89ab7db1c6f42fc6361275e9bf50e76
-“
-cecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/repositories/UserRepository.java,c\e\cec9f99c5e2ea868d22c1739495ef912a90d78c0
-–
-fecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/repositories/ProductRepository.java,6\a\6a74e4c59d1a56afc32e0f3ba72251b43850aef8
-“
-cecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/repositories/RoleRepository.java,9\5\95cf0304106e96efb8424898fff0f700417142b0
-—
-gecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/repositories/CartItemRepository.java,0\9\09980f1de2d533ee1d3c4d714c7b7092d5d5ae19
 …
 Uecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/entities/Cart.java,5\b\5b5fedeee03edfb8b584ada0aca9824bee479397
 ‰
@@ -57,3 +47,5 @@ Pecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/exceptions/.gitkee
 Oecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/dto/.gitkeep,b\f\bf50f32f92b28469c1d1adec428a9b5f8fd5da14
 ~
 Necommerce-backend/src/main/java/com/insy2s/ecommerce_backend/security/.gitkeep,0\9\0905cdb9589a99d378e5a11577aaa8c0a7d6a65a
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
