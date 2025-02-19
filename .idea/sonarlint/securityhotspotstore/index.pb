@@ -49,3 +49,7 @@ Oecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/dto/.gitkeep
 Necommerce-backend/src/main/java/com/insy2s/ecommerce_backend/security/.gitkeep,0\9\0905cdb9589a99d378e5a11577aaa8c0a7d6a65a
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+‚
+Recommerce-backend/src/main/java/com/insy2s/ecommerce_backend/config/AppConfig.java,f\c\fcc73e1afca0d5e73b94b25ef65d143ed3b0b4b7
+‡
+Wecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/config/SecurityConfig.java,8\a\8a84d5d006a9939a5aec82a647763d89233b7fac
