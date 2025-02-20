@@ -25,6 +25,4 @@ public class ProductController {
     public ProductDTO getProductById(@PathVariable UUID id) {
         return productService.getProductById(id);
     }
-
-
 }
