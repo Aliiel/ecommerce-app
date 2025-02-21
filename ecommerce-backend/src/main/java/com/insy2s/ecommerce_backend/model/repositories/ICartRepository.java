@@ -1,6 +1,7 @@
 package com.insy2s.ecommerce_backend.model.repositories;
 
 import com.insy2s.ecommerce_backend.model.entities.Cart;
+import com.insy2s.ecommerce_backend.model.entities.CartStatus;
 import com.insy2s.ecommerce_backend.model.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,5 +12,7 @@ public interface ICartRepository extends JpaRepository<Cart, UUID> {
 
     Optional<Cart> findByUser_Id(UUID id);
 
-    Optional<Cart> findByUser(User user);
+    Optional<Cart> findByStatusAndUser(CartStatus status, User user);
+
+
 }

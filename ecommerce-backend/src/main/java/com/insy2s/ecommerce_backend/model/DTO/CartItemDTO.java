@@ -1,11 +1,19 @@
 package com.insy2s.ecommerce_backend.model.DTO;
 
-import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.UUID;
 
-public record CartItemDTO(
-        UUID productId,
-        String productName,
-        BigDecimal productPrice,
-        int quantity) {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartItemDTO {
+
+    private UUID id;
+    private ProductDTO product;
+    private int quantity;
 }

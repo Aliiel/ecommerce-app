@@ -1,11 +1,7 @@
 package com.insy2s.ecommerce_backend.model.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.Cascade;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +13,7 @@ import java.util.*;
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name = "users")
 public class User implements UserDetails {
 
@@ -34,9 +31,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToOne(mappedBy = "user", orphanRemoval = true)
-    @Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
-    private Cart cart;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<Cart> carts = new ArrayList<>();
 
     @Override
     public String getUsername() {

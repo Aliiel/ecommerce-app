@@ -2,16 +2,12 @@ package com.insy2s.ecommerce_backend.model.mappers;
 
 import com.insy2s.ecommerce_backend.model.DTO.CartItemDTO;
 import com.insy2s.ecommerce_backend.model.entities.CartItem;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {ProductMapper.class})
 public interface CartItemMapper {
 
-    CartItemDTO toDTO(CartItem cartItem);
-
-    CartItem toEntity(CartItemDTO cartItemDTO);
-
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void partialUpdate(CartItemDTO cartItemDTO, @MappingTarget CartItem cartItem);
-
+    CartItemDTO toCartItemDTO(CartItem cartItem);
+    CartItem toCartItem(CartItemDTO cartItemDTO);
 }

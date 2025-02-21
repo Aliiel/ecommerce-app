@@ -1,7 +1,7 @@
 package com.insy2s.ecommerce_backend.controller;
 
 import com.insy2s.ecommerce_backend.model.DTO.ProductDTO;
-import com.insy2s.ecommerce_backend.service.ProductService;
+import com.insy2s.ecommerce_backend.service.Impl.ProductServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,16 +13,16 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductService productService;
+    private final ProductServiceImpl productServiceImpl;
 
     @GetMapping
     public List<ProductDTO> getProducts() {
-        return productService.getAllProducts();
+        return productServiceImpl.getAllProducts();
     }
 
 
     @GetMapping("/{id}")
     public ProductDTO getProductById(@PathVariable UUID id) {
-        return productService.getProductById(id);
+        return productServiceImpl.getProductById(id);
     }
 }

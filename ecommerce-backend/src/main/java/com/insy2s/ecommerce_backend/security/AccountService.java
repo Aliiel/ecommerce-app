@@ -2,6 +2,7 @@ package com.insy2s.ecommerce_backend.security;
 
 import com.insy2s.ecommerce_backend.exceptions.InvalidCredentialsException;
 import com.insy2s.ecommerce_backend.exceptions.ResourceAlreadyExistsException;
+import com.insy2s.ecommerce_backend.exceptions.ResourceNotFoundException;
 import com.insy2s.ecommerce_backend.model.DTO.AuthenticationRequest;
 import com.insy2s.ecommerce_backend.model.DTO.AuthenticationResponse;
 import com.insy2s.ecommerce_backend.model.DTO.RegistrationRequest;
@@ -57,7 +58,7 @@ public class AccountService {
                     request.email(),
                     request.password()
             );
-            User user = userRepository.findByEmail(request.email()).orElseThrow(() -> new UsernameNotFoundException("Pas d'utilisateur enregistré avec cet email"));
+            User user = userRepository.findByEmail(request.email()).orElseThrow(() -> new ResourceNotFoundException("Pas d'utilisateur enregistré avec cet email"));
             authenticationManager.authenticate(authenticationToken);
             final String token = jwtService.generateToken(user);
             return new AuthenticationResponse(token);
