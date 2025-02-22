@@ -109,7 +109,5 @@ _ecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/controller/CartIte
 aecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCartItemRequest.java,b\d\bd89f7d678f79857470b311313475a0ec4e2bf15
 ˆ
 Xecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/CartResponse.java,2\d\2d1e2ae1643245254df22fff692161ebc1c8ca65
-‘
-aecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCartItemReponse.java,4\7\47f770a50bfba8a21f026f42f443a30e64a141bc
 ’
 becommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCartItemResponse.java,d\f\dffe65d49751f5428d30cd8f4d4b295e5051d252

@@ -24,8 +24,9 @@ public class CartItemController {
 
 
     @DeleteMapping("/delete/{id}")
-    public void deleteCartItem(@PathVariable UUID id) {
+    public ResponseEntity<Void> deleteCartItem(@PathVariable UUID id) {
         cartItemService.deleteCartItem(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
