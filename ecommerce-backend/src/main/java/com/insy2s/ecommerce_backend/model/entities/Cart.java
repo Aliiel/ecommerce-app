@@ -1,6 +1,5 @@
 package com.insy2s.ecommerce_backend.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 

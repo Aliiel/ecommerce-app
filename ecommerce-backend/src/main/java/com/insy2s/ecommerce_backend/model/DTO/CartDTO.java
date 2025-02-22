@@ -20,5 +20,4 @@ public class CartDTO {
     private CartStatus status;
     private BigDecimal totalPrice;
     private List<CartItemDTO> itemsDTO;
-    private UserDTO userDTO;
 }

@@ -2,6 +2,7 @@ package com.insy2s.ecommerce_backend.controller;
 
 import com.insy2s.ecommerce_backend.model.DTO.AddToCartRequest;
 import com.insy2s.ecommerce_backend.model.DTO.CartDTO;
+import com.insy2s.ecommerce_backend.model.DTO.CartResponse;
 import com.insy2s.ecommerce_backend.model.DTO.UserDTO;
 import com.insy2s.ecommerce_backend.model.entities.User;
 import com.insy2s.ecommerce_backend.model.mappers.UserMapper;
@@ -23,16 +24,21 @@ public class CartController {
 
     @GetMapping
     public ResponseEntity<CartDTO> getCart(@AuthenticationPrincipal User user) {
-        log.info("user récup du controller : " + user);
         return ResponseEntity.ok(cartService.getOrCreateCart(userMapper.toUserDTO(user)));
     }
 
     @PostMapping("/add")
-    public ResponseEntity<CartDTO> addToCart(
+    public ResponseEntity<CartResponse> addToCart(
             @AuthenticationPrincipal User user,
             @RequestBody AddToCartRequest request) {
 
         UserDTO userDTO = userMapper.toUserDTO(user);
         return ResponseEntity.ok(cartService.addProductToCart(userDTO, request));
+    }
+
+
+    @PostMapping("/validate")
+    public ResponseEntity<CartResponse> validateCart(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(cartService.validateCart(userMapper.toUserDTO(user)));
     }
 }

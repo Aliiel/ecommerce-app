@@ -1,5 +1,7 @@
 package com.insy2s.ecommerce_backend.service.Impl;
 
+import com.insy2s.ecommerce_backend.exceptions.BusinessLogicException;
+import com.insy2s.ecommerce_backend.exceptions.ResourceNotFoundException;
 import com.insy2s.ecommerce_backend.model.DTO.*;
 import com.insy2s.ecommerce_backend.model.entities.*;
 import com.insy2s.ecommerce_backend.model.mappers.CartMapper;
@@ -30,9 +32,7 @@ public class CartServiceImpl implements ICartService {
     @Override
     public CartDTO getOrCreateCart(UserDTO userDTO) {
 
-        log.info("userDTO: " + userDTO);
         User user = userMapper.toUser(userDTO);
-        log.info("User: {}", user);
 
         Cart cart = cartRepository.findByStatusAndUser(CartStatus.PENDING, user)
                 .orElseGet(() -> {
@@ -47,11 +47,11 @@ public class CartServiceImpl implements ICartService {
 
 
     @Override
-    public CartDTO addProductToCart(UserDTO userDTO, AddToCartRequest request) {
+    public CartResponse addProductToCart(UserDTO userDTO, AddToCartRequest request) {
 
         CartDTO cartDTO = getOrCreateCart(userDTO);
-        Cart cart = cartRepository.findByUser_Id(userDTO.id())
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
+        Cart cart = cartRepository.findByStatusAndUser(CartStatus.PENDING, userMapper.toUser(userDTO))
+                .orElseThrow(() -> new ResourceNotFoundException("Pas de panier trouvé"));
 
         cartMapper.partialUpdate(cartDTO, cart);
 
@@ -80,6 +80,23 @@ public class CartServiceImpl implements ICartService {
         cart.setCartItems(cartItems);
         cartRepository.save(cart);
 
-        return cartMapper.toCartDTO(cart);
+        return new CartResponse("Produit ajouté au panier", cart.getStatus());
+    }
+
+
+    @Override
+    public CartResponse validateCart(UserDTO userDTO) {
+
+        Cart cart = cartRepository.findByStatusAndUser(CartStatus.PENDING, userMapper.toUser(userDTO))
+                .orElseThrow(() -> new ResourceNotFoundException("Pas de panier"));
+
+        if (cart.getCartItems().isEmpty()) {
+           throw new BusinessLogicException("Le panier est vide");
+        }
+
+        cart.setStatus(CartStatus.VALIDATED);
+        cartRepository.save(cart);
+
+        return new CartResponse("Panier validé", cart.getStatus());
     }
 }

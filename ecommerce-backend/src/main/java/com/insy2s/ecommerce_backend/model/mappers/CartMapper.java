@@ -4,10 +4,9 @@ import com.insy2s.ecommerce_backend.model.DTO.CartDTO;
 import com.insy2s.ecommerce_backend.model.entities.Cart;
 import org.mapstruct.*;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {UserMapper.class, CartItemMapper.class})
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {CartItemMapper.class})
 public interface CartMapper {
 
-    @Mapping(target = "userDTO", source = "user")
     @Mapping(target = "itemsDTO", source = "cartItems")
     CartDTO toCartDTO(Cart cart);
     Cart toCart(CartDTO cartDTO);
