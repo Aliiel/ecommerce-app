@@ -99,10 +99,6 @@ Yecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/service/IProductSe
 Zecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/service/ICartItemService.java,7\d\7d541a3acd74678ea60e92ae23b6924d8949d72f
 í
 becommerce-backend/src/main/java/com/insy2s/ecommerce_backend/service/Impl/CartItemServiceImpl.java,c\9\c979ec52c49037378fa1ac7fc2c8d571c5d6e78f
-L
-ecommerce-front/package.json,5\a\5a5113f5e22f595e6f6724595fc72f8629ba0e5a
-J
-ecommerce-front/src/App.js,8\7\87ea28393d625f5b683d5c283a633c0cf71eca99
 è
 _ecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/controller/CartItemController.java,6\f\6f4ccc782fe3a55b62e82e596b28826ccf1050c3
 ë
@@ -111,3 +107,13 @@ aecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCa
 Xecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/CartResponse.java,2\d\2d1e2ae1643245254df22fff692161ebc1c8ca65
 í
 becommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCartItemResponse.java,d\f\dffe65d49751f5428d30cd8f4d4b295e5051d252
+N
+ecommerce-frontend/src/App.css,b\2\b2ad40bc802dc4b248a317800c9e2c0a560b3d8f
+M
+ecommerce-frontend/index.html,3\e\3e5e799f4d688b63e3a1eb625e41895186549a16
+N
+ecommerce-frontend/src/App.jsx,7\2\72310920e8c12495f6fee491ac9f70cdb1d77576
+O
+ecommerce-frontend/src/main.jsx,e\3\e309865f14e7d10b2b6630d4877670d3fbf1c835
+P
+ ecommerce-frontend/src/index.css,f\e\fe8d957bad9ee0727fb7bbe8141b27a9c2287f98
