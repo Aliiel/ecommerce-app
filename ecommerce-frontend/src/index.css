@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.toast-custom {
+    background-color: #E9D5FF !important; 
+    color: #1F2937 !important; 
+  }

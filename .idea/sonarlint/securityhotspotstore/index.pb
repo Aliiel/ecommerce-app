@@ -107,8 +107,6 @@ aecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCa
 Xecommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/CartResponse.java,2\d\2d1e2ae1643245254df22fff692161ebc1c8ca65
 ’
 becommerce-backend/src/main/java/com/insy2s/ecommerce_backend/model/DTO/UpdateCartItemResponse.java,d\f\dffe65d49751f5428d30cd8f4d4b295e5051d252
-N
-ecommerce-frontend/src/App.css,b\2\b2ad40bc802dc4b248a317800c9e2c0a560b3d8f
 M
 ecommerce-frontend/index.html,3\e\3e5e799f4d688b63e3a1eb625e41895186549a16
 N

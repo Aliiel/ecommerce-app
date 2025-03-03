@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { getAllProducts } from "./productService";
+import { getAllProducts } from "../../services/productService";
 import ProductCard from "./productCard";
+import { toastInfo } from "../toastMessages";
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
@@ -15,7 +16,8 @@ const ProductList = () => {
           setProducts(productsData); 
           console.log(productsData);
         } catch (error) {
-          setError("Erreur de chargement des produits");
+          console.log(error);
+          setError(error.response.data);
         } 
       };
   

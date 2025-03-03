@@ -17,6 +17,11 @@ public class CartItemServiceImpl implements ICartItemService {
 
     private final ICartItemRepository cartItemRepository;
 
+    /**
+     *  (pour générer : "/**" et "entrer")
+     * @param request
+     * @return
+     */
     @Override
     public UpdateCartItemResponse updateCartItem(UpdateCartItemRequest request) {
         CartItem cartItem = cartItemRepository.findById(request.id()).orElseThrow(() -> new ResourceNotFoundException("Pas de produit trouvé"));

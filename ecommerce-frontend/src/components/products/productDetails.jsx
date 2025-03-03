@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getProductById } from "./productService";
+import { getProductById } from "../../services/productService";
 
 
 const ProductDetails = () => {
@@ -15,10 +15,10 @@ const ProductDetails = () => {
           setProduct(data);
           console.log("produit recup : ", data)
         } catch (error) {
+            console.log(error);
           console.error("Erreur lors du chargement du produit.");
         }
       };
-  
       fetchProduct();
     }, [id]);
   
@@ -33,7 +33,7 @@ const ProductDetails = () => {
         src={`/${product.pictureUrl}`}
         alt={product.name} 
         />
-        <h1 className="text-2xl font-bold mt-4">{product.name}</h1>
+        <h1 className="text-2xl font-bold text-center mt-4">{product.name}</h1>
         <p className="text-lg text-gray-700 mt-2">{product.price} €</p>
       </div>
     );

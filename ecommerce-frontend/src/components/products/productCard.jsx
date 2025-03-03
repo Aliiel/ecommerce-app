@@ -1,4 +1,5 @@
-import Button from './Button';
+import Button from '../Button';
+import PropTypes from 'prop-types';
 
 const ProductCard = ({ product, onClick }) => {
     return (
@@ -19,6 +20,16 @@ const ProductCard = ({ product, onClick }) => {
         </div>
       </div>
     );
+  };
+
+  ProductCard.propTypes = {
+    product: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      pictureUrl: PropTypes.string.isRequired
+    }).isRequired,
+    onClick: PropTypes.func.isRequired
   };
   
   export default ProductCard;

@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router";
+import { useAuth } from "./account/authContext";
 
 function Header() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const { user, logout } = useAuth();
   
     return (
       <header className="bg-purple-200 p-4 flex justify-between items-center shadow-md">
@@ -18,19 +18,27 @@ function Header() {
   
         {/* Menu selon l'état de connexion */}
         <div>
-          {isAuthenticated ? (
+          {user ? (
             <Menu as="div" className="relative inline-block text-left">
             <MenuButton>
             <ShoppingCartIcon className="h-8 w-8 text-gray-800" />
-          </MenuButton>
+            </MenuButton>
                 <MenuItems className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
                   <MenuItem>
                     <Link to="/cart" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Mon panier
                     </Link>
                   </MenuItem>
+                  <MenuItem>
+                  <button
+                  onClick={logout}
+                  className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Me déconnecter
+                </button>
+                  </MenuItem>
                   </MenuItems>
-          </Menu>
+            </Menu>
           ) : (
             <Menu as="div" className="relative inline-block text-left">
               <MenuButton>
@@ -38,12 +46,12 @@ function Header() {
               </MenuButton>
                 <MenuItems className="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
                   <MenuItem>
-                    <Link to="/authentication" className="block px-4 py-2 text-sm text-black hover:bg-purple-100">
+                    <Link to="/login" className="block px-4 py-2 text-sm text-black hover:bg-purple-100">
                       Se connecter
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link to="/registration" className="block px-4 py-2 text-sm text-black hover:bg-purple-100">
+                    <Link to="/signup" className="block px-4 py-2 text-sm text-black hover:bg-purple-100">
                       Créer un compte
                     </Link>
                   </MenuItem>
