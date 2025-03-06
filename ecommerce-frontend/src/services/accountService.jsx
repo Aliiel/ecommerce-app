@@ -3,6 +3,7 @@ import axiosInstance from "./axiosApp";
 export const registration = async (values) => {
     try {
         const response = await axiosInstance.post(`/account/registration`, values);
+        console.log(response);
         return response;
     } catch (error) {
         console.log(error);
@@ -18,6 +19,7 @@ export const registration = async (values) => {
 export const authentication = async (values) => {
     try {
         const response = await axiosInstance.post(`/account/authentication`, values);
+        console.log(response);
         return response;
     } catch (error) {
         console.log(error);

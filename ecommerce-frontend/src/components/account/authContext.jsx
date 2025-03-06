@@ -1,56 +1,57 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
 import { toastError, toastInfo, toastSuccess } from "../toastMessages";
-import { jwtDecode } from "jwt-decode";
+import TokenService from "../../services/tokenService";
 
 const AuthContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+
+  const loadUser = () => {
+    const token = TokenService.getToken();
+
+    if (!token) return;
+
+    if (!TokenService.isTokenValid()) {
+      if (user) {
+        toastInfo("Veuillez vous reconnecter");
+      }
+      setUser(null);
+      TokenService.removeToken();
+      return;
+    }
+
+    const decodedToken = TokenService.decodeToken();
+    if (decodedToken) {
+      setUser({
+        id: decodedToken.id,
+        email: decodedToken.email,
+        roles: decodedToken.roles,
+      });
+    }
+  };
   
 
   useEffect(() => {
-    const token = localStorage.getItem("access_token");
-
-    if (token) {
-
-        try {
-          const decodedToken = jwtDecode(token);
-          setUser({
-            id: decodedToken.id,
-            email: decodedToken.email,
-            roles: decodedToken.roles,
-          });
-          console.log("user : ", user)
-
-        } catch (error) {
-          toastError(error);
-          console.error("Token invalide ou expiré");
-          localStorage.removeItem("access_token"); 
-        }
-      }
-    }, []);
+    loadUser();
+  }, []);
 
   const login = (token) => {
-    
-    const decodedToken = jwtDecode(token);
-
-    setUser({
-        id:decodedToken.id,
-        email: decodedToken.email
-    });
-
-    localStorage.setItem("access_token", token);
+    TokenService.setToken(token);
+    loadUser();
     toastSuccess("Vous êtes bien connecté");
-    navigate('/');
+    navigate("/");
   };
 
 
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("access_token");
+    TokenService.removeToken();
     toastInfo("Vous êtes déconnecté");
     navigate("/");
   };
@@ -64,4 +65,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 // Hook pour utiliser l'authentification
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

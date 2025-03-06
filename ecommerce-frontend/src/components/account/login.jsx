@@ -9,10 +9,9 @@ const Login = () => {
     const handleLogin = async (values) => {
       try {
         const response = await authentication(values); 
-        console.log(response);
         login(response.data.access_token);        
       } catch (error) {
-        console.error("Erreur de connexion :", error);
+        console.error("Erreur :", error);
         toastError(error);
       }
     };

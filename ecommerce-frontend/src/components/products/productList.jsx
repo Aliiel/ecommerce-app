@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { getAllProducts } from "../../services/productService";
 import ProductCard from "./productCard";
-import { toastInfo } from "../toastMessages";
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);

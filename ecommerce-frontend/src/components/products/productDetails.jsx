@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getProductById } from "../../services/productService";
+import AddToCart from "../cart/addToCart.jsx";
 
 
 const ProductDetails = () => {
@@ -35,6 +36,7 @@ const ProductDetails = () => {
         />
         <h1 className="text-2xl font-bold text-center mt-4">{product.name}</h1>
         <p className="text-lg text-gray-700 mt-2">{product.price} €</p>
+          <AddToCart product={product} />
       </div>
     );
   };
