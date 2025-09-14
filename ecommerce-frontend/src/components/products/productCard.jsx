@@ -9,13 +9,13 @@ const ProductCard = ({ product, onClick }) => {
           src={product.pictureUrl}
           alt={product.name}
         />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{product.name}</div>
-          <div className="mt-4">
-            <span className="text-lg">{product.price} €</span>
+        <div className="py-3 text-center">
+          <div className="font-bold text-xl">{product.name}</div>
+          <div className="mt-2">
+            <p className="text-lg">{product.price} €</p>
           </div>
         </div>
-        <div className="px-6 py-4 text-center">
+        <div className="py-2 text-center">
           <Button onClick={onClick}>Voir le produit</Button>
         </div>
       </div>

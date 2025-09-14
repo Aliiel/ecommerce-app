@@ -35,8 +35,8 @@ const ProductDetails = () => {
         alt={product.name} 
         />
         <h1 className="text-2xl font-bold text-center mt-4">{product.name}</h1>
-        <p className="text-lg text-gray-700 mt-2">{product.price} €</p>
-          <AddToCart product={product} />
+        <p className="text-lg text-gray-700 text-center mt-2">{product.price} €</p>
+          <p className={"text-center"}><AddToCart product={product} /></p>
       </div>
     );
   };
